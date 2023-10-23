@@ -14,7 +14,7 @@ const { DB_USER, DB_PASSWORD, DB_HOST, DB_DEPLOY_RAILWAY } = process.env;
 // );
 
 //! desactivar para apuntar a loccalhost
-const sequelize = new Sequelize(DB_DEPLOY_RAILWAY, {
+var sequelize = new Sequelize(DB_DEPLOY_RAILWAY, {
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 });
