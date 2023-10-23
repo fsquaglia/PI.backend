@@ -75,7 +75,9 @@ const getDogs = async (req, res) => {
       res.status(200).json(allDogs);
     }
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    res
+      .status(500)
+      .json({ error: "Error en get al obtener los dogs: " + error.message });
   }
 };
 
