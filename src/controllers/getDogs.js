@@ -16,8 +16,8 @@ const getDogs = async (req, res) => {
       name: obj.name,
       id: obj.id,
       reference_image_id: obj.reference_image_id,
-      height: obj.height.metric,
-      weight: obj.weight.metric,
+      height: `${obj.height.metric} cm | ${obj.height.imperial} in`,
+      weight: `${obj.weight.metric} kg | ${obj.weight.imperial} lbs`,
       life_span: obj.life_span,
       temperament: obj.temperament,
       origin: "API",
@@ -75,9 +75,7 @@ const getDogs = async (req, res) => {
       res.status(200).json(allDogs);
     }
   } catch (error) {
-    res
-      .status(500)
-      .json({ error: "Error en get al obtener los dogs: " + error.message });
+    res.status(500).json({ error: error.message });
   }
 };
 

@@ -37,6 +37,7 @@ const getDogById = async (req, res) => {
         weight: dogByIdBd.weight,
         life_span: dogByIdBd.life_span,
         temperament: temperaments,
+        origin: "BD",
       };
     } else {
       //es un numero, buscamos en la API
@@ -49,10 +50,11 @@ const getDogById = async (req, res) => {
           name: data.name,
           id: data.id,
           reference_image_id: data.reference_image_id,
-          height: data.height.metric,
-          weight: data.weight.metric,
+          height: `${data.height.metric} cm | ${data.height.imperial} in`,
+          weight: `${data.weight.metric} kg | ${data.weight.imperial} lbs`,
           life_span: data.life_span,
           temperament: data.temperament,
+          origin: "API",
         };
       }
     }
